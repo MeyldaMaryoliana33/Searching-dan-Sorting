@@ -1,0 +1,56 @@
+# =========================
+# STUDI KASUS 1
+# Cari nilai mahasiswa dalam list
+# Menggunakan Linear Search
+# =========================
+
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+
+    return -1
+
+nilai_mahasiswa = [70, 85, 90, 75, 88]
+nilai_dicari = 75
+hasil = linear_search(nilai_mahasiswa, nilai_dicari)
+
+if hasil != -1:
+    print("Nilai", nilai_dicari, "ditemukan di indeks ke:", hasil)
+else:
+    print("Nilai tidak ditemukan")
+    
+    
+# =========================
+# STUDI KASUS 2
+# Urutkan nilai mahasiswa
+# Menggunakan Selection Sort
+# =========================
+
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_index = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
+
+nilai_mahasiswa = [88, 70, 95, 75, 80]
+print("Sebelum sorting:", nilai_mahasiswa)
+hasil = selection_sort(nilai_mahasiswa)
+print("Setelah sorting:", hasil)
+
+
+# =========================
+# STUDI KASUS 3
+# Cari kata dalam dokumen
+# Menggunakan Naive String Matching
+# =========================
+
+text = "BELAJAR STRUKTUR DATA ITU MENYENANGKAN"
+pattern = "DATA"
+
+for i in range(len(text) - len(pattern) + 1):
+    if text[i:i+len(pattern)] == pattern:
+        print("Kata", pattern, "ketemu di index", i)
